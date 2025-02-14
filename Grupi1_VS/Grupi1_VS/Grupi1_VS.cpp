@@ -117,7 +117,7 @@ void Recipt(Order o) {
 		cout << menu[o.foodIndex[i]] << " x" << o.foodCount[i] << " - " << price[o.foodIndex[i]] * o.foodCount[i] << "\n";
 		totalPrice += price[o.foodIndex[i]] * o.foodCount[i];
 	}
-	cout << o.location;
+	cout << o.location << "\n";
 	cout << setw(20) << setfill('-') << "\n";
 	cout << "The Total Price: " << totalPrice << "\n";
 	cout << "THANK YOU FOR ORDERING IN FAST FURY!!!" << "\n";
