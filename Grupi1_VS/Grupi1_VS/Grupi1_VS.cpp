@@ -19,6 +19,28 @@ struct Order
 	void Payment();
 };
 
+void Order::ChooseFood()
+{
+	char a;
+	cout << "\n" << setw(20) << setfill('-') << "\n";
+	for (int i = 0; i < menuCount; i++)
+	{
+		cout << "Type the number of food you would like to choose: ";
+		cin >> foodIndex[i];
+		cout << "Type the number of how many portions would you like: ";
+		cin >> foodCount[i];
+
+		cout << "\nDo you want anything else? Enter (1) if yes | (any key) if no:\n";
+		cin >> a;
+		if (a == '1') {
+			orderCount++;
+			continue;
+		}
+		else
+			break;
+	}
+}
+
 
 void ShowMenu()
 {
@@ -30,5 +52,7 @@ void ShowMenu()
 
 int main()
 {
+	Order order;
+	order.ChooseFood();
 	ShowMenu();
 }
