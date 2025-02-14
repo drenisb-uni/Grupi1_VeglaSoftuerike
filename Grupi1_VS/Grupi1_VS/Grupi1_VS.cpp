@@ -4,6 +4,8 @@
 using namespace std;
 
 int const menuCount = 4;
+string menu[menuCount] = { "Burger","Cheese Burger","Fries","Wings" };
+double price[menuCount] = { 2.00, 2.50, 1.00, 3.00 };
 
 struct Order
 {
@@ -17,7 +19,16 @@ struct Order
 	void Payment();
 };
 
+
+void ShowMenu()
+{
+	cout << "What would you like to order:\n";
+	for (int i = 0; i < menuCount; i++)
+		cout << menu[i] << " - " << fixed << setprecision(2) << price[i] << ": " << i << endl;
+}
+
+
 int main()
 {
-    std::cout << "Hello World!\n";
+	ShowMenu();
 }
