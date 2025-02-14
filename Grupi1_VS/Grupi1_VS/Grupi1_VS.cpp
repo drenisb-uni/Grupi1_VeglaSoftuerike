@@ -40,6 +40,15 @@ void Order::ChooseFood()
 			break;
 	}
 }
+void Order::Payment() {
+	double totalPrice = 0;
+	cout << "\n" << setw(20) << setfill('-') << "\n";
+	for (int i = 0; i < orderCount; i++)
+	{
+		totalPrice += price[foodIndex[i] - 1] * foodCount[i];
+	}
+	cout << "The Total Price is: " << totalPrice << "\n";
+}
 
 
 void ShowMenu()
