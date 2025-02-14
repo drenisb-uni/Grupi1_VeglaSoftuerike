@@ -7,10 +7,12 @@ int const menuCount = 4;
 string menu[menuCount] = { "Burger","Cheese Burger","Fries","Wings" };
 double price[menuCount] = { 2.00, 2.50, 1.00, 3.00 };
 long long cardNumber;
+
+string lastLocation;
+
 int yr;
 int mon;
 int ccv;
-string lastLocation;
 
 struct Order
 {
@@ -45,6 +47,7 @@ void Order::ChooseFood()
 			break;
 	}
 }
+
 void Order::ChooseLocation() {
 	char saveinfo;
 	cout << "\n" << setw(20) << setfill('-') << "\n";
@@ -55,6 +58,7 @@ void Order::ChooseLocation() {
 	if (saveinfo == '1')
 		lastLocation = location;
 }
+
 void Order::Payment() {
 	double totalPrice = 0;
 	cout << "\n" << setw(20) << setfill('-') << "\n";
@@ -64,6 +68,7 @@ void Order::Payment() {
 	}
 	cout << "The Total Price is: " << totalPrice << "\n";
 }
+
 void CardPayment() {
 
 	long long cardNumber1;
@@ -119,9 +124,16 @@ void Recipt(Order o) {
 	cout << setw(50) << setfill('-') << "\n";
 
 }
+
 int main()
 {
 	Order order;
-	order.ChooseFood();
+	cout << "Welcome to FAST FURY!\n\n";
 	ShowMenu();
+	order.ChooseFood();
+	order.ChooseLocation();
+	order.Payment();
+	CardPayment();
+	Recipt(order);
+	return 0;
 }
