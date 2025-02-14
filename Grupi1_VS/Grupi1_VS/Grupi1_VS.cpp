@@ -1,20 +1,34 @@
-// Grupi1_VS.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int const menuCount = 4;
+string menu[menuCount] = { "Burger","Cheese Burger","Fries","Wings" };
+double price[menuCount] = { 2.00, 2.50, 1.00, 3.00 };
+
+struct Order
+{
+	int foodIndex[menuCount];
+	int foodCount[menuCount];
+	int orderCount = 1;
+	string location;
+
+	void ChooseFood();
+	void ChooseLocation();
+	void Payment();
+};
+
+
+void ShowMenu()
+{
+	cout << "What would you like to order:\n";
+	for (int i = 0; i < menuCount; i++)
+		cout << menu[i] << " - " << fixed << setprecision(2) << price[i] << ": " << i << endl;
+}
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	ShowMenu();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
