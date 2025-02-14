@@ -10,6 +10,7 @@ long long cardNumber;
 int yr;
 int mon;
 int ccv;
+string lastLocation;
 
 struct Order
 {
@@ -43,6 +44,16 @@ void Order::ChooseFood()
 		else
 			break;
 	}
+}
+void Order::ChooseLocation() {
+	char saveinfo;
+	cout << "\n" << setw(20) << setfill('-') << "\n";
+	cout << "Type the location for the delivery:\n";
+	cin >> location;
+	cout << "\nDo you want to save location? Enter (1) if yes | (any key) if no:\n";
+	cin >> saveinfo;
+	if (saveinfo == '1')
+		lastLocation = location;
 }
 void Order::Payment() {
 	double totalPrice = 0;
@@ -91,7 +102,23 @@ void ShowMenu()
 		cout << menu[i] << " - " << fixed << setprecision(2) << price[i] << ": " << i << endl;
 }
 
+void Recipt(Order o) {
+	double totalPrice = 0;
+	cout << setw(50) << setfill('-') << "\n";
+	cout << "\n\tRecipt\n";
+	cout << setw(50) << setfill('-') << "\n";
+	for (int i = 0; i < o.orderCount; i++)
+	{
+		cout << menu[o.foodIndex[i]] << " x" << o.foodCount[i] << " - " << price[o.foodIndex[i]] * o.foodCount[i] << "\n";
+		totalPrice += price[o.foodIndex[i]] * o.foodCount[i];
+	}
+	cout << o.location;
+	cout << setw(20) << setfill('-') << "\n";
+	cout << "The Total Price: " << totalPrice << "\n";
+	cout << "THANK YOU FOR ORDERING IN FAST FURY!!!" << "\n";
+	cout << setw(50) << setfill('-') << "\n";
 
+}
 int main()
 {
 	Order order;
