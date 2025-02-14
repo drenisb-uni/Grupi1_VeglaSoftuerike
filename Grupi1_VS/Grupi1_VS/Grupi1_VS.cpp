@@ -64,7 +64,7 @@ void Order::Payment() {
 	cout << "\n" << setw(20) << setfill('-') << "\n";
 	for (int i = 0; i < orderCount; i++)
 	{
-		totalPrice += price[foodIndex[i] - 1] * foodCount[i];
+		totalPrice += price[foodIndex[i]] * foodCount[i];
 	}
 	cout << "The Total Price is: " << totalPrice << "\n";
 }
