@@ -10,6 +10,7 @@ long long cardNumber;
 int yr;
 int mon;
 int ccv;
+string lastLocation;
 
 struct Order
 {
@@ -43,6 +44,16 @@ void Order::ChooseFood()
 		else
 			break;
 	}
+}
+void Order::ChooseLocation() {
+	char saveinfo;
+	cout << "\n" << setw(20) << setfill('-') << "\n";
+	cout << "Type the location for the delivery:\n";
+	cin >> location;
+	cout << "\nDo you want to save location? Enter (1) if yes | (any key) if no:\n";
+	cin >> saveinfo;
+	if (saveinfo == '1')
+		lastLocation = location;
 }
 void Order::Payment() {
 	double totalPrice = 0;
