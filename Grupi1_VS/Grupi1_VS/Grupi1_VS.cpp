@@ -102,7 +102,23 @@ void ShowMenu()
 		cout << menu[i] << " - " << fixed << setprecision(2) << price[i] << ": " << i << endl;
 }
 
+void Recipt(Order o) {
+	double totalPrice = 0;
+	cout << setw(50) << setfill('-') << "\n";
+	cout << "\n\tRecipt\n";
+	cout << setw(50) << setfill('-') << "\n";
+	for (int i = 0; i < o.orderCount; i++)
+	{
+		cout << menu[o.foodIndex[i]] << " x" << o.foodCount[i] << " - " << price[o.foodIndex[i]] * o.foodCount[i] << "\n";
+		totalPrice += price[o.foodIndex[i]] * o.foodCount[i];
+	}
+	cout << o.location;
+	cout << setw(20) << setfill('-') << "\n";
+	cout << "The Total Price: " << totalPrice << "\n";
+	cout << "THANK YOU FOR ORDERING IN FAST FURY!!!" << "\n";
+	cout << setw(50) << setfill('-') << "\n";
 
+}
 int main()
 {
 	Order order;
